@@ -9,7 +9,7 @@ import NewChat from "./NewChat";
 import ChatRow from "./ChatRow";
 import ModelSelection from "./ModelSelection";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
-import LinkNewTab from "./LinkNewTab";
+import Link from "next/link";
 
 function Sidebar() {
   const { data: session } = useSession();
@@ -55,7 +55,11 @@ function Sidebar() {
             </p>
           </div>
           <div className=" flex flex-col items-start space-y-2 mt-5">
-            <LinkNewTab href="https://discord.gg/ChW9x5nF">
+            <Link
+              href={"https://discord.gg/ChW9x5nF"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className=" text-white flex items-center justify-center space-x-2 cursor-pointer">
                 <img
                   src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6cc3c481a15a141738_icon_clyde_white_RGB.png"
@@ -64,7 +68,7 @@ function Sidebar() {
                 />
                 <p className=" text-sm font-semibold">Flash Discord</p>
               </div>
-            </LinkNewTab>
+            </Link>
             <div
               onClick={() => signOut()}
               className=" text-white flex items-center justify-center space-x-2 cursor-pointer hover:text-purple-500"
