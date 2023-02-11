@@ -12,11 +12,14 @@ function Login() {
         height={300}
         alt="logo"
       />
+      <p className=" text-white font-bold text-3xl animate-pulse ">
+        Sign In to use ChatGPT
+      </p>
       <button
-        className=" text-white font-bold text-3xl animate-pulse "
+        className=" text-2xl text-white font-bold border px-4 py-2 mt-5 hover:bg-white hover:text-[#11A37F] transition-all duration-200 ease-out rounded"
         onClick={() => signIn("google")}
       >
-        Sign In to use ChatGPT
+        Sign In
       </button>
     </div>
   );

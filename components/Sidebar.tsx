@@ -8,6 +8,8 @@ import { db } from "@/firebase";
 import NewChat from "./NewChat";
 import ChatRow from "./ChatRow";
 import ModelSelection from "./ModelSelection";
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import LinkNewTab from "./LinkNewTab";
 
 function Sidebar() {
   const { data: session } = useSession();
@@ -41,18 +43,36 @@ function Sidebar() {
         </div>
       </div>
       {session && (
-        <div
-          className=" flex flex-col items-center justify-center cursor-pointer"
-          onClick={() => signOut()}
-        >
-          <img
-            src={session.user?.image!}
-            alt="Profile Pic"
-            className="h-12 w-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50"
-          />
-          <p className=" text-white font-bold text-sm">
-            {session?.user?.name!}
-          </p>
+        <div className=" flex flex-col">
+          <div className=" cursor-pointer">
+            <img
+              src={session.user?.image!}
+              alt="Profile Pic"
+              className="h-6 w-6 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50"
+            />
+            <p className=" text-white font-bold text-sm text-center">
+              {session?.user?.name!}
+            </p>
+          </div>
+          <div className=" flex flex-col items-start space-y-2 mt-5">
+            <LinkNewTab href="https://discord.gg/ChW9x5nF">
+              <div className=" text-white flex items-center justify-center space-x-2 cursor-pointer">
+                <img
+                  src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6cc3c481a15a141738_icon_clyde_white_RGB.png"
+                  alt="Discord Logo"
+                  className=" w-4 h-4 object-contain"
+                />
+                <p className=" text-sm font-semibold">Flash Discord</p>
+              </div>
+            </LinkNewTab>
+            <div
+              onClick={() => signOut()}
+              className=" text-white flex items-center justify-center space-x-2 cursor-pointer hover:text-purple-500"
+            >
+              <ArrowRightOnRectangleIcon className=" h-4 w-4" />
+              <p className=" text-sm font-semibold">Sign Out</p>
+            </div>
+          </div>
         </div>
       )}
     </div>
