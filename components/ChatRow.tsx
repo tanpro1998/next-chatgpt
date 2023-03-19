@@ -34,6 +34,7 @@ function ChatRow({ id }: Props) {
     await deleteDoc(doc(db, "users", session?.user?.email!, "chats", id));
     router.replace("/");
   };
+
   return (
     <Link
       href={`/chat/${id}`}
